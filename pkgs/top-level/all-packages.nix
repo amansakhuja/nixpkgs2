@@ -1387,6 +1387,8 @@ with pkgs;
 
   sgrep = callPackage ../tools/text/sgrep { };
 
+  skyspell = callPackage ../tools/text/skyspell { };
+
   smbscan = callPackage ../tools/security/smbscan { };
 
   spectre-cli = callPackage ../tools/security/spectre-cli { };
