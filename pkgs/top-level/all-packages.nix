@@ -12469,6 +12469,8 @@ with pkgs;
 
   specup = haskellPackages.specup.bin;
 
+  speek = libsForQt5.callPackage ../applications/networking/instant-messengers/speek { };
+
   spglib = callPackage ../development/libraries/spglib {
     inherit (llvmPackages) openmp;
   };
