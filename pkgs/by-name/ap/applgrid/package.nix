@@ -28,10 +28,6 @@ stdenv.mkDerivation rec {
     zlib
   ];
 
-  patches = [
-    ./bad_code.patch
-  ];
-
   preConfigure =
     ''
       substituteInPlace src/Makefile.in \
