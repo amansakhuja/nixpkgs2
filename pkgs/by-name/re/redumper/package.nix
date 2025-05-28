@@ -6,6 +6,7 @@
   llvmPackages,
 }:
 
+# redumper is using C++ modules, this requires latest C++20 compiler and build tools
 llvmPackages.libcxxStdenv.mkDerivation (finalAttrs: {
   pname = "redumper";
   version = "438";
