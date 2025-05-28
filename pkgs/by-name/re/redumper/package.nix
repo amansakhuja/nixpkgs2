@@ -42,5 +42,6 @@ llvmPackages.libcxxStdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.gpl3Plus;
     maintainers = with lib.maintainers; [ hughobrien ];
     platforms = lib.platforms.linux;
+    mainProgram = "redumper";
   };
 })
