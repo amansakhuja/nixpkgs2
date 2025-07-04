@@ -19,6 +19,7 @@
   sqlite,
   zlib,
   jq,
+  libpq
 }:
 let
   py3 = python3.withPackages (p: [
@@ -50,6 +51,7 @@ stdenv.mkDerivation rec {
       py3
       unzip
       which
+      libpq.pg_config
     ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       cctools
@@ -66,9 +68,8 @@ stdenv.mkDerivation rec {
 
   # this causes some python trouble on a darwin host so we skip this step.
   # also we have to tell libwally-core to use sed instead of gsed.
-  postPatch =
-    if !stdenv.hostPlatform.isDarwin then
-      ''
+  postPatch = 
+     if !stdenv.hostPlatform.isDarwin then ''
         patchShebangs \
           tools/generate-wire.py \
           tools/update-mocks.sh \
@@ -107,6 +108,7 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [
       jb55
       prusnak
+      jjacke13
     ];
     license = licenses.mit;
     platforms = platforms.linux ++ platforms.darwin;
